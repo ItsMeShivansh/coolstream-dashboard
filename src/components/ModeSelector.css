@@ -1,0 +1,121 @@
+.mode-selector {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #2c2c2c 100%);
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6), 
+              0 0 20px rgba(52, 152, 219, 0.1),
+              inset 0 1px 0 rgba(52, 152, 219, 0.1);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+}
+
+.mode-selector::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 20px;
+  padding: 2px;
+  background: linear-gradient(135deg, #3498db, #2ecc71, #3498db);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.mode-title {
+  font-size: 1.5rem;
+  color: #3498db;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.mode-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.mode-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.8rem 1.2rem;
+  background: linear-gradient(135deg, rgba(15, 15, 15, 0.8) 0%, rgba(30, 30, 30, 0.8) 100%);
+  border: 2px solid rgba(52, 152, 219, 0.2);
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  color: #ecf0f1;
+}
+
+.mode-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(52, 152, 219, 0.3) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.mode-button:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.mode-button:hover {
+  background: linear-gradient(135deg, rgba(52, 152, 219, 0.15) 0%, rgba(41, 128, 185, 0.15) 100%);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(52, 152, 219, 0.4), 0 0 40px rgba(52, 152, 219, 0.2);
+  border-color: #3498db;
+}
+
+.mode-button.active {
+  background: linear-gradient(135deg, #3498db 0%, #2980b9 50%, #1f5f8b 100%);
+  border-color: #2ecc71;
+  color: white;
+  transform: scale(1.05);
+  box-shadow: 0 8px 32px rgba(52, 152, 219, 0.6), 
+              0 0 60px rgba(52, 152, 219, 0.3),
+              inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  animation: activeGlow 2s ease-in-out infinite;
+}
+
+@keyframes activeGlow {
+  0%, 100% { box-shadow: 0 8px 32px rgba(52, 152, 219, 0.6), 0 0 60px rgba(52, 152, 219, 0.3); }
+  50% { box-shadow: 0 8px 32px rgba(52, 152, 219, 0.8), 0 0 80px rgba(52, 152, 219, 0.5); }
+}
+
+.mode-icon {
+  font-size: 2rem;
+}
+
+.mode-label {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.mode-desc {
+  font-size: 0.85rem;
+  opacity: 0.8;
+  text-align: center;
+}
+
+.mode-button.active .mode-desc {
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .mode-buttons {
+    grid-template-columns: 1fr;
+  }
+}

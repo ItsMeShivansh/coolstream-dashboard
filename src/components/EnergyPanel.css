@@ -1,0 +1,156 @@
+.energy-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.input-label {
+  font-weight: 500;
+  color: #ecf0f1;
+  font-size: 0.95rem;
+}
+
+.energy-input {
+  padding: 0.75rem 1rem;
+  border: 2px solid rgba(52, 152, 219, 0.3);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: rgba(44, 62, 80, 0.5);
+  color: #ecf0f1;
+}
+
+.energy-input:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.input-hint {
+  font-size: 0.8rem;
+  color: #6b7280;
+  font-style: italic;
+  margin-top: 0.25rem;
+}
+
+.budget-display {
+  margin-bottom: 1.5rem;
+}
+
+.budget-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.within-budget {
+  color: #10b981;
+  font-weight: 700;
+}
+
+.over-budget {
+  color: #ef4444;
+  font-weight: 700;
+  animation: pulse-red 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-red {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.budget-bar {
+  height: 24px;
+  background: #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+.budget-progress {
+  height: 100%;
+  background: linear-gradient(90deg, #10b981 0%, #34d399 100%);
+  transition: width 0.5s ease;
+  border-radius: 12px;
+}
+
+.budget-progress.over {
+  background: linear-gradient(90deg, #ef4444 0%, #f87171 100%);
+}
+
+.energy-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.stat-card {
+  background: rgba(44, 62, 80, 0.5);
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  border: 1px solid rgba(52, 152, 219, 0.2);
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: #95a5a6;
+  margin-bottom: 0.5rem;
+}
+
+.stat-value {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #3498db;
+}
+
+.power-limit-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  padding: 1rem;
+  border-radius: 12px;
+}
+
+.info-icon {
+  font-size: 2.5rem;
+}
+
+.info-title {
+  font-size: 0.9rem;
+  color: #92400e;
+  font-weight: 500;
+}
+
+.info-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #b45309;
+}
+
+.info-desc {
+  font-size: 0.8rem;
+  color: #92400e;
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .energy-stats {
+    grid-template-columns: 1fr;
+  }
+}

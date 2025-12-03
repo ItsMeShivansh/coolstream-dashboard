@@ -1,0 +1,29 @@
+.App {
+  min-height: 100vh;
+  padding-bottom: 2rem;
+}
+
+.main-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.control-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+
+@media (max-width: 768px) {
+  .main-container {
+    padding: 1rem;
+  }
+
+  .control-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
